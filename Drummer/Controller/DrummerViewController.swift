@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class DrummerViewController: UIViewController {
 
     // Drum Kit 0 (Acoustic Drum Kit)
@@ -27,5 +28,16 @@ class DrummerViewController: UIViewController {
     
     // YOUR CODE HERE
 
-
+    @IBAction func drumKitWasChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            currentDrumKit = drumKit0
+        }
+        if sender.selectedSegmentIndex == 1 {
+            currentDrumKit = drumKit1
+        }
+    }
+    @IBAction func drumButtonWasPressed(_ sender: UIButton) {
+        currentDrumKit!.playDrumSound(forDrumWithTag: sender.tag)
+    }
+    
 }
